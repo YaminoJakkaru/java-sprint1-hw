@@ -7,47 +7,28 @@ public class Main {
         printMenu();
         int userInput = scanner.nextInt();
         while (true) {
-            if(userInput==1){
-                System.out.println("Выберете меяц: 0-11");
-                int month=scanner.nextInt();
-                if (month>11||month<0) {
-                    System.out.println("Месяц введен неверно!");
-                    continue;
+            switch (userInput) {
+                case 1: {
+                    stepTracer.saveNumberOfSteps();
+                    break;
                 }
-                System.out.println("Выберете день: 0-30");
-                int day=scanner.nextInt();
-                if(day>30||day<0){
-                    System.out.println("День указан не верно!");
-                    continue;
+                case 2: {
+                    stepTracer.printStatistics();
+                    break;
                 }
-                System.out.println("Введите количество шагов:");
-                int steps=scanner.nextInt();
-                if(steps<0){
-                    System.out.println("Количество шагов указано неверно!");
-                    continue;
+                case 3: {
+                    stepTracer.saveGoal();
+                    break;
                 }
-                stepTracer.saveNumberOfSteps(month,day,steps);
-
+                case 0: {
+                    System.out.println("Выход.");
+                   return;
+                }
+                default: {
+                    System.out.println("Извините, такой команды пока нет.");
+                    break;
+                }
             }
-            else if (userInput==2){
-                System.out.println("Выберете меяц: 0-11");
-                int month=scanner.nextInt();
-                stepTracer.printStatistics(month);
-            }
-            else if(userInput==3){
-                stepTracer.saveGoal();
-
-
-            }
-            else if(userInput==0){
-                System.out.println("Выход.");
-                break;
-            }
-            else{
-                System.out.println("Извините, такой команды пока нет.");
-            }
-
-
             printMenu();
             userInput = scanner.nextInt();
         }

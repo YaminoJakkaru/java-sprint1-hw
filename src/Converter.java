@@ -1,18 +1,11 @@
 public class Converter {
-    double KmInStep;
-    double KcalInStep;
-
-    Converter(int km,int Kcal) {
-        KmInStep =km ;
-        KcalInStep=Kcal;
+    final double CM=75;
+    final double CAL=50;
 
 
-    }
 
-    double convertToKm(int steps) {
-        return steps*KmInStep/1000;
-    }
+    double convertToKm(int steps) {return steps*CM/100000;}
     double convertToKcal(int steps){
-        return steps*KcalInStep/1000;
+        return steps*CAL/1000;
     }
 }
